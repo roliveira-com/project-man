@@ -1,2 +1,3 @@
-# project-man
-A project manager app using Angular and Firebase
+# Project Man
+
+A project manager web app using Angular and Firebase
