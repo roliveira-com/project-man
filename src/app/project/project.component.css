@@ -4,7 +4,17 @@
   padding: 1em;
   border: 1px solid #CCC;
   box-shadow: 3px 3px 4px #CCC;
+  transition: all .1s ease-in-out;
 }
+
+/* Faz com que o box de projetos se desloque um pouco para cima */
+/* e para esquerda, aumentando a sombra. Isto cria um efeito que */
+/* o box esta se projetando para cima durante o mouse-over */
+/* :host:hover{
+  margin: -5px 5px 1em 0;
+  box-shadow: 8px 8px 10px #CCC;
+  transition: all .1s ease-in-out;
+} */
 
 :host(.marked){
   padding: .8em;
