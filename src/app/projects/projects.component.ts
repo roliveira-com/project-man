@@ -11,7 +11,7 @@ import { ProjectsService } from './projects.service';
 })
 export class ProjectsComponent implements OnInit {
   projects: Project[];
-  markedPrjIndex = 0;
+  markedPrjIndex = null;
   progress = 'progressing';
   createNew = false;
 
