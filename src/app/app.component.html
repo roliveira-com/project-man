@@ -1,5 +1,4 @@
 <nav class="navbar is-primary">
-  <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bulma.io">
         <img src="https://cdn.worldvectorlogo.com/logos/ngk-1.svg" alt="Logo da Bagaça" width="112" height="28">
@@ -17,11 +16,6 @@
           <a class="navbar-item" [routerLink]="['/users']">Users</a>
       </div>
     </div>
-  </div>
 </nav>
 
-<section class="section">
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
-</section>
+<router-outlet></router-outlet>

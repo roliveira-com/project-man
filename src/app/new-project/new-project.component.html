@@ -1,44 +1,55 @@
 
 <form (ngSubmit)="onCreateProject()" #f="ngForm">
-  <div class="form-group">
-    <label for="name" class="control-label">Name</label>
-    <input
-      type="text"
-      id="name"
-      ngModel
-      name="name"
-      class="form-control"
-      required>
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Nome</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <p class="control is-expanded">
+          <input type="text" name="name" id="name" ngModel class="input" required>
+        </p>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="description">Description</label>
-    <input
-      type="text"
-      id="description"
-      ngModel
-      name="description"
-      class="form-control"
-      required>
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Descrição</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <p class="control is-expanded">
+          <input type="text" name="description" id="description" ngModel class="input" required>
+        </p>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="status">Status</label>
-    <select
-      name="status"
-      [ngModel]="'active'"
-      id="status"
-      class="form-control">
-      <option
-        *ngFor="let status of availableStatus"
-        style="text-transform: capitalize"
-        [value]="status">{{ status }}</option>
-    </select>
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Status</label>
+    </div>
+    <div class="field-body">
+      <div class="field is-narrow">
+        <div class="control">
+          <div class="select is-fullwidth">
+            <select name="status" [ngModel]="'active'" id="status">
+              <option *ngFor="let status of availableStatus" [value]="status">{{ status }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <button
-    type="submit"
-    [disabled]="!f.valid"
-    class="btn btn-success">Create Project</button>
-  <button
-    type="button"
-    class="btn btn-danger"
-    (click)="onCancel()">Cancel</button>
+
+  <div class="field is-grouped is-grouped-right">
+    <p class="control">
+      <button type="submit" [disabled]="!f.valid" class="button is-primary">Create Project</button>
+    </p>
+    <p class="control">
+      <button type="button" class="button is-light" (click)="onCancel()">Cancel</button>
+    </p>
+  </div>
 </form>

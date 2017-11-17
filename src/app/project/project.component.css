@@ -1,8 +1,10 @@
 :host {
   display: block;
+  height: 65px;
   margin-bottom: 1em;
   padding: 1em;
   border: 1px solid #CCC;
+  overflow: hidden;
   box-shadow: 3px 3px 4px #CCC;
   transition: all .1s ease-in-out;
 }
@@ -18,10 +20,11 @@
 
 :host(.marked){
   padding: .8em;
+  height: 205px;
 }
 
 :host(.inactive){
-  color: #CCC !important;
+  color: #CCC;
   box-shadow: none;
 }
 
