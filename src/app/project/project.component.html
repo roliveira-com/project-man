@@ -6,20 +6,35 @@
   </h3>
   <hr>
   <p>{{ project.description }}</p>
-  <div class="field has-addons has-addons-left">
-    <p class="control">
-      <span class="select">
-          <select #prjStatus>
-            <option value="active" [selected]="project.status === 'active'">Active</option>
-            <option value="inactive" [selected]="project.status === 'inactive'">Inactive</option>
-            <option value="critical" [selected]="project.status === 'critical'">Critical</option>
-          </select>
-      </span>
-    </p>
-    <p class="control">
-      <button class="button is-warning" (click)="onUpdateStatus(prjStatus.value)">Update Status</button>
-      <button class="button is-danger" (click)="onDelete()">Delete Project</button>
-    </p>
+  <div class="level">
+    <div class="level-left">
+      <div class="level-item">
+        <div class="field has-addons has-addons-left">
+          <p class="control">
+            <span class="select">
+              <select #prjStatus>
+                <option value="active" [selected]="project.status === 'active'">Active</option>
+                <option value="inactive" [selected]="project.status === 'inactive'">Inactive</option>
+                <option value="critical" [selected]="project.status === 'critical'">Critical</option>
+              </select>
+            </span>
+          </p>
+          <p class="control">
+            <button class="button is-warning" (click)="onUpdateStatus(prjStatus.value)">Update Status</button>
+            <button class="button is-danger" (click)="onDelete()"><img src="/assets/trash.svg" class="image is-24x24" alt=""></button>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="level-right">
+      <div class="level-item">
+        <div class="field">
+          <p class="control">
+            <a class="button is-light" >Project Tasks</a>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
