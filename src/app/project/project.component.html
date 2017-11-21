@@ -1,9 +1,16 @@
 <div class="content">
-  <h3>
-    {{ project.title }}
-    <!-- Show different usages of ngClass and ngStyle"-->
-    <span class="tag is-medium" [ngClass]=getPrjStatusClass()>{{ project.status }}</span>
-  </h3>
+  <div class="level">
+    <div class="level-left">
+      <div class="level-item">
+        <h3>{{ project.title }}</h3>
+      </div>
+    </div>
+    <div class="level-right">
+      <div class="level-item">
+        <h3><span class="tag is-medium" [ngClass]=getPrjStatusClass()>{{ project.status }}</span></h3>
+      </div>
+    </div>
+  </div>
   <hr>
   <p>{{ project.description }}</p>
   <div class="level">
