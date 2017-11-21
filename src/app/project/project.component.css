@@ -19,8 +19,8 @@
 } */
 
 :host(.marked){
-  padding: .8em;
-  height: 205px;
+  /* padding: .8em; */
+  /* height: 205px; */
 }
 
 :host(.inactive){
