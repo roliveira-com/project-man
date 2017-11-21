@@ -1,6 +1,6 @@
 <div class="content">
   <h3>
-    {{ project.name }}
+    {{ project.title }}
     <!-- Show different usages of ngClass and ngStyle"-->
     <span class="tag is-medium" [ngClass]=getPrjStatusClass()>{{ project.status }}</span>
   </h3>
@@ -9,21 +9,25 @@
   <div class="level">
     <div class="level-left">
       <div class="level-item">
-        <div class="field has-addons has-addons-left">
-          <p class="control">
-            <span class="select">
-              <select #prjStatus>
-                <option value="active" [selected]="project.status === 'active'">Active</option>
-                <option value="inactive" [selected]="project.status === 'inactive'">Inactive</option>
-                <option value="critical" [selected]="project.status === 'critical'">Critical</option>
-              </select>
-            </span>
-          </p>
-          <p class="control">
-            <button class="button is-warning" (click)="onUpdateStatus(prjStatus.value)">Update Status</button>
-            <button class="button is-danger" (click)="onDelete()"><img src="/assets/trash.svg" class="image is-24x24" alt=""></button>
-          </p>
-        </div>
+        <form [formGroup]="statusForm">
+          <div class="field has-addons has-addons-left">
+            <p class="control">
+              <span class="select">
+                <select formControlName="status">
+                  <option value="active" [selected]="project.status === 'active'">Active</option>
+                  <option value="inactive" [selected]="project.status === 'inactive'">Inactive</option>
+                  <option value="critical" [selected]="project.status === 'critical'">Critical</option>
+                </select>
+              </span>
+            </p>
+            <p class="control">
+              <button class="button is-warning" (click)="onUpdateStatus(project, statusForm.value.status)">Update Status</button>
+              <button class="button is-danger" (click)="onDelete(project)">
+                <img src="/assets/trash.svg" class="image is-24x24" alt="">
+              </button>
+            </p>
+          </div>
+        </form>
       </div>
     </div>
     <div class="level-right">

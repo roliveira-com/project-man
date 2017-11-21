@@ -1,5 +1,5 @@
 
-<form (ngSubmit)="onCreateProject()" #f="ngForm">
+<form [formGroup]="newProjectForm">
 
   <div class="field is-horizontal">
     <div class="field-label is-normal">
@@ -8,7 +8,7 @@
     <div class="field-body">
       <div class="field">
         <p class="control is-expanded">
-          <input type="text" name="name" id="name" ngModel class="input" required>
+          <input type="text" formControlName="title" name="title" id="title" class="input" required>
         </p>
       </div>
     </div>
@@ -21,7 +21,7 @@
     <div class="field-body">
       <div class="field">
         <p class="control is-expanded">
-          <input type="text" name="description" id="description" ngModel class="input" required>
+          <input type="text" formControlName="description" name="description" id="description" class="input" required>
         </p>
       </div>
     </div>
@@ -35,8 +35,10 @@
       <div class="field is-narrow">
         <div class="control">
           <div class="select is-fullwidth">
-            <select name="status" [ngModel]="'active'" id="status">
-              <option *ngFor="let status of availableStatus" [value]="status">{{ status }}</option>
+            <select name="status" formControlName="status" id="status">
+              <option value="active">Active</option>
+              <option value="critical">Critical</option>
+              <option value="inactive">Inactive</option>
             </select>
           </div>
         </div>
@@ -46,10 +48,10 @@
 
   <div class="field is-grouped is-grouped-right">
     <p class="control">
-      <button type="submit" [disabled]="!f.valid" class="button is-primary">Create Project</button>
+      <button type="submit" (click)="registerNewProject(newProjectForm.value)" [disabled]="newProjectForm.invalid" class="button is-primary">Create Project</button>
     </p>
     <p class="control">
-      <button type="button" class="button is-light" (click)="onCancel()">Cancel</button>
+      <button type="button" class="button is-light">Cancel</button>
     </p>
   </div>
 </form>

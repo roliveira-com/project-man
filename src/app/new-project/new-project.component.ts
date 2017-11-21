@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+import { ProjectsService } from '../projects/projects.service';
 
 import { Project } from '../projects/project.model';
 
@@ -9,27 +11,31 @@ import { Project } from '../projects/project.model';
   styleUrls: ['./new-project.component.css'],
 })
 export class NewProjectComponent implements OnInit {
-  @Output() creationCancelled = new EventEmitter<void>();
-  @Output() projectCreated = new EventEmitter<Project>();
-  @ViewChild('f') form: NgForm;
+
+  newProjectForm: FormGroup;
+
   availableStatus = [
     'active',
     'inactive',
     'critical'
   ];
 
-  constructor() { }
+  constructor(
+    private form: FormBuilder,
+    private service: ProjectsService
+  ) { }
 
   ngOnInit() {
+    this.newProjectForm = this.form.group({
+      title: this.form.control('', [Validators.required, Validators.minLength(5)]),
+      description: this.form.control('', [Validators.required, Validators.minLength(5)]),
+      status: this.form.control('', [Validators.required]),
+    })
   }
 
-  onCreateProject() {
-    this.projectCreated.emit({name: this.form.value.name, description: this.form.value.description, status: this.form.value.status});
-  }
-
-  onCancel() {
-    this.form.reset();
-    this.creationCancelled.emit();
+  registerNewProject(prj: Project){
+    this.service.createProject(prj);
+    this.newProjectForm.reset();
   }
 
 }
