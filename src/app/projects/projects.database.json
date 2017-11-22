@@ -1,0 +1,79 @@
+{
+  "pessoas" : {
+    "-KyOQEEygDIwxC5HBkXG" : {
+      "id" : "-KyOQEEygDIwxC5HBkXG",
+      "nome" : "Luke",
+      "sobrenome" : "Skywalker"
+    },
+    "-KyOQGBGutl93179jt7b" : {
+      "id" : "-KyOQGBGutl93179jt7b",
+      "nome" : "Han",
+      "sobrenome" : "Solo"
+    },
+    "-KyORSZcSVV1oukRb79W" : {
+      "id" : "-KyORSZcSVV1oukRb79W",
+      "nome" : "Yoda",
+      "sobrenome" : "Yoda"
+    },
+    "-Kyu15WCn1s7ozyQEnIN" : {
+      "id" : "-Kyu15WCn1s7ozyQEnIN",
+      "nome" : "Arnold",
+      "sobrenome" : "Schuaznegger"
+    },
+    "-KyxkGLlpK5lvcvGYRma" : {
+      "id" : "-KyxkGLlpK5lvcvGYRma",
+      "nome" : "William",
+      "sobrenome" : "Jansen"
+    }
+  },
+  "projetos" : {
+    "-KzOlCzATM1dG1UCfqwW" : {
+      "description" : "configurar o Project Man para ser um PWA",
+      "id" : "-KzOlCzATM1dG1UCfqwW",
+      "status" : "active",
+      "title" : "Project Man PWA"
+    },
+    "-KzPU77ko5a3l17Shnyy" : {
+      "description" : "Practice hard to understand how you may style components and update styles dynamically",
+      "id" : "-KzPU77ko5a3l17Shnyy",
+      "status" : "active",
+      "title" : "Learn Angular Styles"
+    },
+    "-KzPUBtuQLpG8QWT6SBU" : {
+      "description" : "Learn how Angular helps with animating elements on your page",
+      "id" : "-KzPUBtuQLpG8QWT6SBU",
+      "status" : "critical",
+      "title" : "Learn Angular Animations"
+    },
+    "-KzPUGy_PKjbT9xaayNz" : {
+      "description" : "Understand what Angular is, how it works and how and when you might use it",
+      "id" : "-KzPUGy_PKjbT9xaayNz",
+      "status" : "inactive",
+      "title" : "Understanding Angular Basics"
+    },
+    "-KzPUMdNFu0qRS_NkQ6b" : {
+      "description" : "Absolutely required to dive deep into Angular and all its features",
+      "id" : "-KzPUMdNFu0qRS_NkQ6b",
+      "status" : "inactive",
+      "title" : "Learn JavaScript, HTML and CSS"
+    },
+    "-KzPX244d-a1ZQ8v9P-N" : {
+      "description" : "My evil plan of world domination",
+      "id" : "-KzPX244d-a1ZQ8v9P-N",
+      "status" : "critical",
+      "title" : "Rule the World"
+    },
+    "-KzSyzl3BKnErEgb4ZUu" : {
+      "description" : "Understand how to build apps with native script",
+      "id" : "-KzSyzl3BKnErEgb4ZUu",
+      "status" : "inactive",
+      "title" : "Learn Native Script"
+    },
+    "6513515135135135" : {
+      "description" : "configurar o Project Man para ser um PWA",
+      "id" : "-KzOlCzATM1dG1UCfqwW",
+      "status" : "inactive",
+      "title" : "Project Man PWA"
+    }
+  }
+}
