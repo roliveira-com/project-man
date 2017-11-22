@@ -1,15 +1,8 @@
-.inactive {
-  color: #CCC;
-  border: 1px solid #CCC;
-}
-.inactive h3{
-  color: #CCC;
-}
-
-.marked {
-  /* border: 3px solid #00d1b2; */
+/* Estilo aplicado via Angular Animations */
+/* .marked {
+  border: 3px solid #00d1b2;
   animation: marked .3s ease-out forwards;
-}
+} */
 
 @keyframes marked {
   0% {

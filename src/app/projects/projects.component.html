@@ -45,10 +45,8 @@
     <app-project 
       *ngFor="let prj of projects; let i = index" 
       [project]="prj" 
-      (click)="onSelect()" 
-      [@selectProj]="projectSelection"
-      (statusUpdated)="onStatusUpdated($event, i)" 
-      (projectDeleted)="onProjectDeleted(i)" 
+      [@selectProj]="markedPrjIndex === i ? 'selected' : 'unselected'" 
+      [ngClass]="{inactive: prj.status === 'inactive'}" 
       (click)="markedPrjIndex = i">
     </app-project>
   </div>

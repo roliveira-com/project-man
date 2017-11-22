@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { ProjectsService } from '../projects/projects.service'
 import { Project } from '../projects/project.model';
 
 @Component({
@@ -8,21 +10,31 @@ import { Project } from '../projects/project.model';
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
+
+  private statusForm: FormGroup;
+
   @Input() project: Project;
   @Output() statusUpdated = new EventEmitter<string>();
   @Output() projectDeleted = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(
+    private form: FormBuilder,
+    private api: ProjectsService  
+  ) { }
 
   ngOnInit() {
+    this.statusForm = this.form.group({
+      status: this.form.control(['',Validators.required])
+    })
   }
 
-  onUpdateStatus(newStatus: string) {
-    this.statusUpdated.emit(newStatus);
+  onUpdateStatus(prj: Project, status: string) {
+    prj.status = status;
+    this.api.updateProject(prj);
   }
 
-  onDelete() {
-    this.projectDeleted.emit();
+  onDelete(prj: Project) {
+    this.api.deleteProject(prj);
   }
 
   getPrjStatusClass(){
