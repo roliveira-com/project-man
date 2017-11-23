@@ -4,9 +4,9 @@ export const ItemManipulation = trigger('itemManipulation',[
   // Também, no lugar de 'void => *' pode usar o alias ':enter'
   // e no lugar de '* => void', o alias ':leave'
   transition(':enter',[
-    style({opacity: 0}), animate('1s')
+    style({opacity: 0}), animate('300ms')
   ]),
-  transition('* => void',animate('1s', style({ opacity: 0 })))
+  transition('* => void',animate('1s'))
 ])
 
 export const ItemShown = trigger('itemShown',[
