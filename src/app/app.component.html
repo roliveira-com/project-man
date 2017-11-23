@@ -4,20 +4,73 @@
       <a [routerLink]="['/']">
         <img src="/assets/logo_rounded.png" alt="Logo da Bagaça" class="image is-48x48">
       </a>
-      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+      <div class="navbar-burger burger">
         <span></span>
         <span></span>
         <span></span>
       </div>
     </div>
 
-    <div id="navbarExampleTransparentExample" class="navbar-menu">
+    <div class="navbar-menu">
       <div class="navbar-start">
           <a class="navbar-item" [routerLink]="['/']">Projects</a>
           <a class="navbar-item" [routerLink]="['/users']">Users</a>
       </div>
+      <div class="navbar-end">
+        <div class="navbar-item login-trigger has-dropdown is-hoverable">
+          <a class="navbar-link" (click)="heroCollapse = !heroCollapse">
+            Login
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
+
+
+
+<div class="hero is-warning" [@hideHero]="heroCollapse ? 'collapsed' : 'uncollapsed'">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <div class="column is-two-thirds">
+          <div class="content">
+            <h2>Sign-in and enjoy everything of Project Man</h2>
+            <p>A simple and versatile project manage tool.</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="login-form">
+            <div class="field">
+              <label class="label">e-mail</label>
+              <div class="control">
+                <input class="input is-medium" type="text" placeholder="Text input">
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">password</label>
+              <div class="control">
+                <input class="input is-medium" type="password" placeholder="Text input">
+              </div>
+            </div>
+            <div class="field is-grouped is-grouped-right">
+              <p class="control">
+                <a class="button is-primary is-medium">
+                  Login
+                </a>
+              </p>
+              <p class="control">
+                <a class="button is-light is-medium">
+                  Cancel
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
 <router-outlet></router-outlet>
