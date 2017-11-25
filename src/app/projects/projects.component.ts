@@ -10,7 +10,7 @@ import { ItemManipulation, ItemShown } from '../animations/item-manipulation';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css'],
+  styleUrls: ['./projects.component.scss'],
   animations: [
     selectProject,
     ItemManipulation
@@ -21,6 +21,7 @@ export class ProjectsComponent implements OnInit {
   projects: Project[];
   markedPrjIndex = null;
   progress = 'progressing';
+  createNew = false;
 
   constructor(private prjService: ProjectsService) { }
 

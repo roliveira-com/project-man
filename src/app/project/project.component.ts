@@ -7,11 +7,11 @@ import { Project } from '../projects/project.model';
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
-  styleUrls: ['./project.component.css']
+  styleUrls: ['./project.component.scss']
 })
 export class ProjectComponent implements OnInit {
 
-  private statusForm: FormGroup;
+  public statusForm: FormGroup;
 
   @Input() project: Project;
   @Output() statusUpdated = new EventEmitter<string>();

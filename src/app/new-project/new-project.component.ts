@@ -8,7 +8,7 @@ import { Project } from '../projects/project.model';
 @Component({
   selector: 'app-new-project',
   templateUrl: './new-project.component.html',
-  styleUrls: ['./new-project.component.css'],
+  styleUrls: ['./new-project.component.scss'],
 })
 export class NewProjectComponent implements OnInit {
 
