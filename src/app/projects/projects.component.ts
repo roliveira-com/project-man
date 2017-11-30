@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AnimationEvent } from '@angular/animations';
 
 import { Project } from './project.model';
 
@@ -33,5 +34,13 @@ export class ProjectsComponent implements OnInit {
           this.projects = prj;
         }
       );
+  }
+
+  onAnimationStart(event: AnimationEvent){
+    console.log(event)
+  }
+
+  onAnimationDone(event: AnimationEvent){
+    console.log(event)
   }
 }

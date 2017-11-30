@@ -46,6 +46,8 @@
       *ngFor="let prj of projects; let i = index" 
       [project]="prj" 
       @itemManipulation 
+      (@itemManipulation.start)="onAnimationStart($event)" 
+      (@itemManipulation.done)="onAnimationDone($event)" 
       [@selectProj]="markedPrjIndex === i ? 'selected' : 'unselected'" 
       [ngClass]="{inactive: prj.status === 'inactive'}" 
       (click)="markedPrjIndex = i">
