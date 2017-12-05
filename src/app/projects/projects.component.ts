@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
 
 import { Project } from './project.model';
 
 import { ProjectsService } from './projects.service';
 
+import 'rxjs/add/operator/do';
+
 import { selectProject } from '../animations/project-selection';
-import { ItemManipulation, ItemShown } from '../animations/item-manipulation';
+import { ItemManipulation, ItemShown, itemEnterTrigger } from '../animations/item-manipulation';
+import { projects } from './project.data';
 
 @Component({
   selector: 'app-projects',
@@ -14,26 +17,38 @@ import { ItemManipulation, ItemShown } from '../animations/item-manipulation';
   styleUrls: ['./projects.component.scss'],
   animations: [
     selectProject,
-    ItemManipulation
+    itemEnterTrigger
   ]
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent implements OnInit, AfterViewInit {
 
   projects: Project[];
+  displayedProjects: Array<Project>;
   markedPrjIndex = null;
   progress = 'progressing';
   createNew = false;
 
-  constructor(private prjService: ProjectsService) { }
-
-  ngOnInit() {
+  constructor(private prjService: ProjectsService) {
     this.prjService.loadProjects()
       .subscribe(
-        (prj: Project[]) => {
-          this.progress = 'finished';
-          this.projects = prj;
+      (prj) => {
+        this.progress = 'finished';
+        this.projects = prj;
+        if (this.projects.length >= 1) {
+          console.log(this.projects[0]);
+          this.displayedProjects.push(this.projects[0]);
+          console.log(this.displayedProjects);
         }
-      );
+      }
+    );
+   }
+
+  ngOnInit() {
+
+  }
+
+  ngAfterViewInit(){
+
   }
 
   onAnimationStart(event: AnimationEvent){
@@ -42,5 +57,16 @@ export class ProjectsComponent implements OnInit {
 
   onAnimationDone(event: AnimationEvent){
     console.log(event)
+  }
+
+  onItemAnimated(animationEvt: AnimationEvent, lastPrjId: number){
+    if(animationEvt.fromState != 'void'){
+      return;
+    }
+    if(this.projects.length > lastPrjId + 1){
+      this.displayedProjects.push(this.projects[lastPrjId + 1]);
+    } else {
+      this.projects = this.displayedProjects
+    }
   }
 }

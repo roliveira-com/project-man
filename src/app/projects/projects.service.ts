@@ -15,6 +15,7 @@ import { Project } from './project.model';
 
 @Injectable()
 export class ProjectsService {
+  // private data: Project[] = projects;
   private projects: Observable<Project[]>
 
   constructor(private database: AngularFireDatabase){}
@@ -23,7 +24,7 @@ export class ProjectsService {
   // loadOfflineProjects(): Observable<Project[]> {
   //   const prjLoader = Observable.create((observer: Observer<Project[]>) => {
   //     setTimeout(() => {
-  //       observer.next(this.projects);
+  //       observer.next(this.data);
   //     }, 2000);
   //   });
   //   return prjLoader;
