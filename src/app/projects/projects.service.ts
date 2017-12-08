@@ -4,6 +4,7 @@ import { AngularFireDatabase, AngularFireList, AngularFireAction, DatabaseSnapsh
 import { Observable } from 'rxjs/Observable';
 
 import { Project } from './project.model';
+import { ROUTER_PROVIDERS } from '@angular/router/src/router_module';
 
 // Para dev, descomentar linhas abaixo para uso de dados offline
 
@@ -32,6 +33,12 @@ export class ProjectsService {
 
   loadProjects(): Observable<Project[]> {
     return this.database.list('projetos').valueChanges();
+  }
+
+  // Retorna um Observable mais completo, com keys e uma serie de outros
+  // parametros e metodos para um manipulação mais complexa dos dados
+  loadCompleteProjects(): Observable<AngularFireAction<DatabaseSnapshot>[]>{
+    return this.database.list('projetos').snapshotChanges();
   }
 
   createProject(prj: Project) {
