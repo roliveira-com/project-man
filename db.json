@@ -1,68 +1,74 @@
 {
-  "pessoas" : [
+  "pessoas": [
     {
-      "id" : "-KyOQEEygDIwxC5HBkXG",
-      "nome" : "Luke",
-      "sobrenome" : "Skywalker"
+      "id": "-KyOQEEygDIwxC5HBkXG",
+      "nome": "Luke",
+      "sobrenome": "Skywalker"
     },
     {
-      "id" : "-KyOQGBGutl93179jt7b",
-      "nome" : "Han",
-      "sobrenome" : "Solo"
+      "id": "-KyOQGBGutl93179jt7b",
+      "nome": "Han",
+      "sobrenome": "Solo"
     },
     {
-      "id" : "-KyORSZcSVV1oukRb79W",
-      "nome" : "Yoda",
-      "sobrenome" : "Yoda"
+      "id": "-KyORSZcSVV1oukRb79W",
+      "nome": "Yoda",
+      "sobrenome": "Yoda"
     },
     {
-      "id" : "-Kyu15WCn1s7ozyQEnIN",
-      "nome" : "Arnold",
-      "sobrenome" : "Schuaznegger"
+      "id": "-Kyu15WCn1s7ozyQEnIN",
+      "nome": "Arnold",
+      "sobrenome": "Schuaznegger"
     }
   ],
-  "projetos" : [
+  "projetos": [
     {
-      "description" : "configurar o Project Man para ser um PWA",
-      "id" : "-KzOlCzATM1dG1UCfqwW",
-      "status" : "critical",
-      "title" : "Project Man PWA"
+      "description": "configurar o Project Man para ser um PWA",
+      "id": "-KzOlCzATM1dG1UCfqwW",
+      "status": "critical",
+      "title": "Project Man PWA"
     },
     {
-      "description" : "Practice hard to understand how you may style components and update styles dynamically",
-      "id" : "-KzPU77ko5a3l17Shnyy",
-      "status" : "active",
-      "title" : "Learn Angular Styles"
+      "description": "Practice hard to understand how you may style components and update styles dynamically",
+      "id": "-KzPU77ko5a3l17Shnyy",
+      "status": "active",
+      "title": "Learn Angular Styles"
     },
     {
-      "description" : "Learn how Angular helps with animating elements on your page",
-      "id" : "-KzPUBtuQLpG8QWT6SBU",
-      "status" : "active",
-      "title" : "Learn Angular Animations"
+      "description": "Learn how Angular helps with animating elements on your page",
+      "id": "-KzPUBtuQLpG8QWT6SBU",
+      "status": "active",
+      "title": "Learn Angular Animations"
     },
     {
-      "description" : "Understand what Angular is, how it works and how and when you might use it",
-      "id" : "-KzPUGy_PKjbT9xaayNz",
-      "status" : "inactive",
-      "title" : "Understanding Angular Basics"
+      "description": "Understand what Angular is, how it works and how and when you might use it",
+      "id": "-KzPUGy_PKjbT9xaayNz",
+      "status": "inactive",
+      "title": "Understanding Angular Basics"
     },
     {
-      "description" : "Absolutely required to dive deep into Angular and all its features",
-      "id" : "-KzPUMdNFu0qRS_NkQ6b",
-      "status" : "inactive",
-      "title" : "Learn JavaScript, HTML and CSS"
+      "description": "Absolutely required to dive deep into Angular and all its features",
+      "id": "-KzPUMdNFu0qRS_NkQ6b",
+      "status": "inactive",
+      "title": "Learn JavaScript, HTML and CSS"
     },
     {
-      "description" : "My evil plan of world domination",
-      "id" : "-KzPX244d-a1ZQ8v9P-N",
-      "status" : "critical",
-      "title" : "Rule the World"
+      "description": "My evil plan of world domination",
+      "id": "-KzPX244d-a1ZQ8v9P-N",
+      "status": "critical",
+      "title": "Rule the World"
     },
     {
-      "description" : "Understand how to build apps with native script",
-      "id" : "-KzSyzl3BKnErEgb4ZUu",
-      "status" : "active",
-      "title" : "Learn Native Script"
+      "description": "Understand how to build apps with native script",
+      "id": "-KzSyzl3BKnErEgb4ZUu",
+      "status": "active",
+      "title": "Learn Native Script"
+    },
+    {
+      "title": "Monstrão 2018",
+      "description": "Ficar o maior monstrão do mundo em 2018",
+      "status": "critical",
+      "id": 1513131285589
     }
   ]
 }

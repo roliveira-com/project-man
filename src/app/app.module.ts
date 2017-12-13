@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { AngularFireModule } from 'angularfire2'
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
@@ -28,11 +29,12 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     ReactiveFormsModule,
     HttpModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(config)
   ],
-  providers: [ProjectsService, AngularFireDatabase],
+  providers: [ProjectsService, AngularFireDatabase, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

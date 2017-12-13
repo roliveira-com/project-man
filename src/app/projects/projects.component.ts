@@ -23,27 +23,15 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ProjectsComponent implements OnInit, AfterViewInit {
 
-  projects: any[];
+  projects: Project[];
   displayedProjects: Array<Project>;
   markedPrjIndex = null;
   progress = 'progressing';
   createNew = false;
 
-  constructor(private prjService: ProjectsService) {
-    // Demonstração dos dados retornados do Observable retornado pelo
-    // método loadCompleteProjects() que traz dados mais complexos do
-    // database
-    // this.prjService.loadCompleteProjects()
-    //   .subscribe(
-    //     prjs => {
-    //       prjs.forEach(prj => {
-    //         console.log(prj);
-    //         console.log(prj.key);
-    //         console.log(prj.payload.val());     
-    //       })
-    //     }
-    //   )
+  constructor(private prjService: ProjectsService) {}
 
+  ngOnInit() {
     this.prjService.loadProjects()
       .subscribe(
       (prj) => {
@@ -55,10 +43,6 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
         // }
       }
     );
-   }
-
-  ngOnInit() {
-
   }
 
   ngAfterViewInit(){
