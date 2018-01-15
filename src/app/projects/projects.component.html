@@ -33,7 +33,7 @@
             </button>
           </p>
         </div>
-        <app-new-project *ngIf="createNew" (projectCreated)="onProjectCreated($event)" (creationCancelled)="createNew = false"></app-new-project>
+        <app-new-project *ngIf="createNew" @showForm></app-new-project>
       </div>
     </div>
   </div>
@@ -42,8 +42,9 @@
     <div class="loading-bar" *ngIf="!projects">
       <div class="loading-bar-element"></div>
     </div>
+    
     <app-project 
-      *ngFor="let prj of projects; let i = index" 
+      *ngFor="let prj of projects; let i = index;" 
       [project]="prj" 
       @itemEnter 
       [@selectProj]="markedPrjIndex === i ? 'selected' : 'unselected'" 

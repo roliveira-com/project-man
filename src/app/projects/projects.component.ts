@@ -9,6 +9,7 @@ import 'rxjs/add/operator/do';
 
 import { selectProject } from '../animations/project-selection';
 import { ItemManipulation, ItemShown, itemEnterTrigger } from '../animations/item-manipulation';
+import { ShowForm } from '../animations/show-form';
 import { projects } from './project.data';
 import { Observable } from 'rxjs/Observable';
 
@@ -18,13 +19,14 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./projects.component.scss'],
   animations: [
     selectProject,
-    itemEnterTrigger
+    itemEnterTrigger,
+    ShowForm
   ]
 })
 export class ProjectsComponent implements OnInit, AfterViewInit {
 
   projects: any[];
-  displayedProjects: Array<Project>;
+  displayedProjects: Array<any>;
   markedPrjIndex = null;
   progress = 'progressing';
   createNew = false;
@@ -50,7 +52,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
         this.progress = 'finished';
         this.projects = prj;
         // if (this.projects.length >= 1) {
-        //   this.displayedProjects.push(Object.assign({},this.projects[0]));
+        //   this.displayedProjects.push(this.projects[0]);
         //   console.log(this.displayedProjects);
         // }
       }

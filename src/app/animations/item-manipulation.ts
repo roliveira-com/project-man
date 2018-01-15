@@ -18,6 +18,16 @@ export const ItemShown = trigger('itemShown',[
   ])))
 ])
 
+export const ItemAppearanceTrigger = trigger('ItemAppearance', [
+  state('on', style({ opacity: 1, transform: 'translateX(0px)' })),
+  state('off', style({ opacity: 0, transform: 'translateX(-100%)' })),
+  transition('off => on', animate('1s 1s ease-in')),
+  transition('on => off', animate('1s 1s ease-out', keyframes([
+    style({ opacity: 1, transform: 'translateX(0px)', offset: 0 }),
+    style({ opacity: 0, transform: 'translateX(-50px)', offset: 1 })
+  ])))
+])
+
 export const itemEnterTrigger = trigger('itemEnter',[
   transition(':enter',[
     animate('800ms ease-out', keyframes([
