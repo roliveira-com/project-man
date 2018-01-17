@@ -50,6 +50,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
       .subscribe(
       (prj) => {
         this.progress = 'finished';
+        prj.reverse();
         this.projects = prj;
         // if (this.projects.length >= 1) {
         //   this.displayedProjects.push(this.projects[0]);

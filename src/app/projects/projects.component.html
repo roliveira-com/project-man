@@ -46,7 +46,7 @@
     <app-project 
       *ngFor="let prj of projects; let i = index;" 
       [project]="prj" 
-      @itemEnter 
+      [@itemEnter]="createNew ? 'slideDown' : 'slideUp'"
       [@selectProj]="markedPrjIndex === i ? 'selected' : 'unselected'" 
       [ngClass]="{inactive: prj.status === 'inactive'}" 
       (click)="markedPrjIndex = i">

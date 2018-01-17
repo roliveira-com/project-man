@@ -42,5 +42,21 @@ export const itemEnterTrigger = trigger('itemEnter',[
       transform: 'translateX(0)'
     }),
     animate('500ms ease-out', style({ opacity: 0, transform: 'translateX(100%)' }))
+  ]),
+  transition('slideUp => slideDown',[
+    style({
+      transform: 'translateY(-100%)'
+    }),
+    animate('300ms ease-out', style({
+      transform: 'translateY(0)'
+    }))
+  ]),
+  transition('slideDown => slideUp', [
+    style({
+      transform: 'translateY(0)'
+    }),
+    animate('310ms ease-in', style({
+      transform: 'translateY(-100%)'
+    }))
   ])
 ])

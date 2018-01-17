@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { ButtonState } from '../animations/buttons'
 import { ProjectsService } from '../projects/projects.service';
 
 import { Project } from '../projects/project.model';
@@ -9,6 +10,9 @@ import { Project } from '../projects/project.model';
   selector: 'app-new-project',
   templateUrl: './new-project.component.html',
   styleUrls: ['./new-project.component.scss'],
+  animations: [
+    ButtonState
+  ]
 })
 export class NewProjectComponent implements OnInit {
 

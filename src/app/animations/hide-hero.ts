@@ -8,7 +8,7 @@ export const HideHero = trigger('hideHero', [
     opacity: 0
   })),
   state('uncollapsed', style({
-    height: 319,
+    height: '*',
     overflow: 'hidden',
     opacity: 1
   })),

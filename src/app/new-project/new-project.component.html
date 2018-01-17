@@ -48,7 +48,7 @@
 
   <div class="field is-grouped is-grouped-right">
     <p class="control">
-      <button type="submit" (click)="registerNewProject(newProjectForm.value)" [disabled]="newProjectForm.invalid" class="button is-primary">Create Project</button>
+      <button type="submit" (click)="registerNewProject(newProjectForm.value)" [@buttonState]="newProjectForm.invalid ? invalid : valid" class="button is-primary">Create Project</button>
     </p>
     <p class="control">
       <button type="button" class="button is-light">Cancel</button>
