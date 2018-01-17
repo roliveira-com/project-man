@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, HostBinding } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
 
 import { Project } from './project.model';
@@ -10,6 +10,7 @@ import 'rxjs/add/operator/do';
 import { selectProject } from '../animations/project-selection';
 import { ItemManipulation, ItemShown, itemEnterTrigger } from '../animations/item-manipulation';
 import { ShowForm } from '../animations/show-form';
+import { RouteFadeState } from '../animations/routing';
 import { projects } from './project.data';
 import { Observable } from 'rxjs/Observable';
 
@@ -20,10 +21,12 @@ import { Observable } from 'rxjs/Observable';
   animations: [
     selectProject,
     itemEnterTrigger,
-    ShowForm
+    ShowForm,
+    RouteFadeState
   ]
 })
 export class ProjectsComponent implements OnInit, AfterViewInit {
+  @HostBinding('@routeFadeState') routeAnimation = true;
 
   projects: any[];
   displayedProjects: Array<any>;

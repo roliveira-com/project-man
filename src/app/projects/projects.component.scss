@@ -4,6 +4,10 @@
   animation: marked .3s ease-out forwards;
 } */
 
+:host{
+  display: block;
+}
+
 @keyframes marked {
   0% {
     transform: scale(1);
