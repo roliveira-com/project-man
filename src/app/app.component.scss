@@ -2,6 +2,15 @@
   background-image: url('/assets/loading.gif') no-repeat center center;
 }
 
+main{
+  overflow: hidden;
+}
+
+.navbar-menu .navbar-link:hover,
+.navbar-menu .navbar-item:hover{
+  color: #00d1b2;
+}
+
 .bg-warning-pattern{
   background-image: url('/assets/pattern_2.png');
 }

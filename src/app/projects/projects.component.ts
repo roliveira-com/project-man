@@ -10,7 +10,7 @@ import 'rxjs/add/operator/do';
 import { selectProject } from '../animations/project-selection';
 import { ItemManipulation, ItemShown, itemEnterTrigger } from '../animations/item-manipulation';
 import { ShowForm } from '../animations/show-form';
-import { RouteFadeState } from '../animations/routing';
+import { RouteFadeState , RouteSlideState } from '../animations/routing';
 import { projects } from './project.data';
 import { Observable } from 'rxjs/Observable';
 
@@ -22,11 +22,13 @@ import { Observable } from 'rxjs/Observable';
     selectProject,
     itemEnterTrigger,
     ShowForm,
-    RouteFadeState
+    RouteFadeState,
+    RouteSlideState 
   ]
 })
 export class ProjectsComponent implements OnInit, AfterViewInit {
-  @HostBinding('@routeFadeState') routeAnimation = true;
+  // @HostBinding('@routeFadeState') routeAnimation = true;
+  @HostBinding('@routeSlideState') routeAnimation = true;
 
   projects: any[];
   displayedProjects: Array<any>;
