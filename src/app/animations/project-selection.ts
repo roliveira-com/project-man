@@ -1,4 +1,4 @@
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import { trigger, state, style, transition, animate, query, group } from '@angular/animations';
 
 export const selectProject = trigger('selectProj',[
   state('unselected', style({
@@ -15,9 +15,27 @@ export const selectProject = trigger('selectProj',[
     border: '3px solid #00d1b2'
   })),
   transition('unselected <=> selected', [
-    style({
-      transform: 'scale(1.05)'
-    }),
-    animate('300ms 100ms ease-out')
+    group([
+      style({
+        transform: 'scale(1.05)'
+      }),
+      animate('300ms 100ms ease-out'),
+      query('.tag', [
+        style({
+          transform: 'scale(1)'
+        }),
+        animate('200ms', style({
+          transform: 'scale(1.5)'
+        }))
+      ]),
+      query('h3', [
+        style({
+          transform: 'scale(1)'
+        }),
+        animate('200ms', style({
+          transform: 'scale(1.5)'
+        })),
+      ])
+    ])
   ])
 ])
