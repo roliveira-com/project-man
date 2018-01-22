@@ -25,15 +25,16 @@ export const selectProject = trigger('selectProj',[
           transform: 'scale(1)'
         }),
         animate('200ms', style({
-          transform: 'scale(1.5)'
-        }))
+          transform: 'scale(1.1)'
+        })),
+        animate(200)
       ]),
       query('h3', [
         style({
-          transform: 'scale(1)'
+          transform: 'translateX(-100%)'
         }),
         animate('200ms', style({
-          transform: 'scale(1.5)'
+          transform: 'translateX(0)'
         })),
       ])
     ])
