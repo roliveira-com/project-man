@@ -28,14 +28,14 @@ export class ProjectComponent implements OnInit {
     })
   }
 
-  onUpdateStatus(prj: Project, status: string) {
-    prj.status = status;
-    this.api.updateProject(prj);
-  }
+  // onUpdateStatus(prj: Project, status: string) {
+  //   prj.status = status;
+  //   this.api.updateProject(prj);
+  // }
 
-  onDelete(prj: Project) {
-    this.api.deleteProject(prj);
-  }
+  // onDelete(prj: Project) {
+  //   this.api.deleteProject(prj);
+  // }
 
   getPrjStatusClass(){
     return {

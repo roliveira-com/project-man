@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { AngularFireDatabase, AngularFireList, AngularFireAction, DatabaseSnapshot } from 'angularfire2/database';
 
 import { Observable } from 'rxjs/Observable';
@@ -19,7 +20,7 @@ export class ProjectsService {
   // private data: Project[] = projects;
   private projects: Observable<Project[]>
 
-  constructor(private database: AngularFireDatabase){}
+  constructor(private http: HttpClient){}
 
   // método que retorna um obervable dos dados de projeto
   // loadOfflineProjects(): Observable<Project[]> {
@@ -32,32 +33,24 @@ export class ProjectsService {
   // }
 
   loadProjects(): Observable<Project[]> {
-    return this.database.list('projetos').valueChanges();
-  }
-
-  // Retorna um Observable mais completo, com keys e uma serie de outros
-  // parametros e metodos para um manipulação mais complexa dos dados
-  loadCompleteProjects(): Observable<AngularFireAction<DatabaseSnapshot>[]>{
-    return this.database.list('projetos').snapshotChanges();
+    return this.http.get<Project[]>('http://localhost:8080/api/projects/')
   }
 
   createProject(prj: Project) {
-    prj.id = this.database.list('projetos').push(null).key;
-    this.database.list('projetos').update(prj.id, prj)
-      .then(() => console.log(`Dados Gravados: ${prj.id}`))
-      .catch(erro => console.log(erro.message));
+    return this.http.post<Project>('http://localhost:8080/api/projects/', prj)
+      .map(prj => console.log(`Projeto Id: ${prj._id} foi inserido com sucesso`));
   }
 
-  updateProject(prj: Project){
-    this.database.list('projetos').update(prj.id, prj)
-      .then((ok) => console.log(ok))
-      .catch((error) => console.log(error))
-  }
+  // updateProject(prj: Project){
+  //   this.database.list('projetos').update(prj.id, prj)
+  //     .then((ok) => console.log(ok))
+  //     .catch((error) => console.log(error))
+  // }
 
-  deleteProject(prj: Project){
-    const message = `Deseja mesmo remover o Projeto "${prj.title}" ?`;
-    if (window.confirm(message)) {
-      this.database.list('projetos').remove(prj.id);
-    }
-  }
+  // deleteProject(prj: Project){
+  //   const message = `Deseja mesmo remover o Projeto "${prj.title}" ?`;
+  //   if (window.confirm(message)) {
+  //     this.database.list('projetos').remove(prj.id);
+  //   }
+  // }
 }
