@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/cor
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { ButtonState } from '../animations/buttons'
+import { FormState } from '../animations/form-state'
 import { ProjectsService } from '../projects/projects.service';
 
 import { Project } from '../projects/project.model';
@@ -11,7 +12,8 @@ import { Project } from '../projects/project.model';
   templateUrl: './new-project.component.html',
   styleUrls: ['./new-project.component.scss'],
   animations: [
-    ButtonState
+    ButtonState,
+    FormState
   ]
 })
 export class NewProjectComponent implements OnInit {
