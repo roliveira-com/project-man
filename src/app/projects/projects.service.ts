@@ -36,7 +36,8 @@ export class ProjectsService {
     return this.http.get<Project[]>('http://localhost:8080/api/projects/')
   }
 
-  createProject(prj: Project) {
+  createProject(prj: Project): Observable<void> {
+    console.log(prj)
     return this.http.post<Project>('http://localhost:8080/api/projects/', prj)
       .map(prj => console.log(`Projeto Id: ${prj._id} foi inserido com sucesso`));
   }

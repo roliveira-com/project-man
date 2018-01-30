@@ -31,25 +31,12 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   @HostBinding('@routeSlideState') routeAnimation = true;
 
   projects: any[];
-  displayedProjects: Array<any>;
+  displayedProjects: Project[] = [];
   markedPrjIndex = null;
   progress = 'progressing';
   createNew = false;
 
   constructor(private prjService: ProjectsService) {
-    // Demonstração dos dados retornados do Observable retornado pelo
-    // método loadCompleteProjects() que traz dados mais complexos do
-    // database
-    // this.prjService.loadCompleteProjects()
-    //   .subscribe(
-    //     prjs => {
-    //       prjs.forEach(prj => {
-    //         console.log(prj);
-    //         console.log(prj.key);
-    //         console.log(prj.payload.val());     
-    //       })
-    //     }
-    //   )
 
     this.prjService.loadProjects()
       .subscribe(
@@ -57,10 +44,10 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
         this.progress = 'finished';
         prj.reverse();
         this.projects = prj;
-        // if (this.projects.length >= 1) {
-        //   this.displayedProjects.push(this.projects[0]);
-        //   console.log(this.displayedProjects);
-        // }
+        if (this.projects.length >= 1) {
+          this.displayedProjects.push(this.projects[0]);
+          console.log(this.displayedProjects);
+        }
       }
     );
    }
