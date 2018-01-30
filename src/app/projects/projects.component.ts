@@ -9,6 +9,7 @@ import 'rxjs/add/operator/do';
 
 import { selectProject } from '../animations/project-selection';
 import { ItemManipulation, ItemShown, itemEnterTrigger } from '../animations/item-manipulation';
+import { ListState } from '../animations/staggered-list'
 import { ShowForm } from '../animations/show-form';
 import { RouteFadeState , RouteSlideState } from '../animations/routing';
 import { projects } from './project.data';
@@ -23,15 +24,14 @@ import { Observable } from 'rxjs/Observable';
     itemEnterTrigger,
     ShowForm,
     RouteFadeState,
-    RouteSlideState 
+    RouteSlideState,
+    ListState
   ]
 })
 export class ProjectsComponent implements OnInit, AfterViewInit {
   // @HostBinding('@routeFadeState') routeAnimation = true;
   @HostBinding('@routeSlideState') routeAnimation = true;
-
   projects: any[];
-  displayedProjects: Project[] = [];
   markedPrjIndex = null;
   progress = 'progressing';
   createNew = false;
@@ -57,9 +57,6 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
         this.progress = 'finished';
         prj.reverse();
         this.projects = prj;
-        if (this.projects.length >= 1) {
-          this.displayedProjects.push(this.projects[0]);
-        }
       }
     );
    }
@@ -78,16 +75,5 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
 
   onAnimationDone(event: AnimationEvent){
     console.log(event)
-  }
-
-  onItemAnimated(animationEvt: AnimationEvent, lastPrjId: number){
-    if(animationEvt.fromState != 'void'){
-      return;
-    }
-    if(this.projects.length > lastPrjId + 1){
-      this.displayedProjects.push(this.projects[lastPrjId + 1]);
-    } else {
-      this.projects = this.displayedProjects
-    }
   }
 }

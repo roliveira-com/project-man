@@ -43,16 +43,16 @@
       <div class="loading-bar-element"></div>
     </div>
     
-    <app-project 
-      *ngFor="let prj of displayedProjects; let i = index;" 
-      [project]="prj" 
-      [@itemEnter]="createNew ? 'slideDown' : 'slideUp'" 
-      (@itemEnter.done)="onItemAnimated($event,i)" 
-      [@selectProj]="markedPrjIndex === i ? 'selected' : 'unselected'" 
-      [ngClass]="{inactive: prj.status === 'inactive'}" 
-      (click)="markedPrjIndex = i">
-    </app-project>
-
+    <!-- Wrapper para os componenets da lista que será responsável por criar o efeito sttagered -->
+    <div [@listState]="projects?.length">
+      <app-project 
+        *ngFor="let prj of projects; let i = index;" 
+        [project]="prj" 
+        [@itemEnter]="createNew ? 'slideDown' : 'slideUp'" 
+        [@selectProj]="markedPrjIndex === i ? 'selected' : 'unselected'" 
+        [ngClass]="{inactive: prj.status === 'inactive'}" (click)="markedPrjIndex = i">
+      </app-project>
+    </div>
   </div>
 </section>
 
