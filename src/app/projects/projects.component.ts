@@ -31,7 +31,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   @HostBinding('@routeSlideState') routeAnimation = true;
 
   projects: any[];
-  displayedProjects: Array<any>;
+  displayedProjects: Project[] = [];
   markedPrjIndex = null;
   progress = 'progressing';
   createNew = false;
@@ -57,10 +57,9 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
         this.progress = 'finished';
         prj.reverse();
         this.projects = prj;
-        // if (this.projects.length >= 1) {
-        //   this.displayedProjects.push(this.projects[0]);
-        //   console.log(this.displayedProjects);
-        // }
+        if (this.projects.length >= 1) {
+          this.displayedProjects.push(this.projects[0]);
+        }
       }
     );
    }
