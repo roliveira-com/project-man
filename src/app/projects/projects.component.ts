@@ -23,15 +23,23 @@ import { Observable } from 'rxjs/Observable';
     itemEnterTrigger,
     ShowForm,
     RouteFadeState,
-    RouteSlideState 
+    RouteSlideState
   ]
 })
 export class ProjectsComponent implements OnInit, AfterViewInit {
   // Criando o binding para animar a rota
+  // Como não é possivel fazer o bind diretamente no HTML como em outros componentes
+  // nas animações para as rotas usamos o decorator '@HostBiding' para associar a animação 
+  // a esta rota
   // @HostBinding('@routeFadeState') routeAnimation = true;
   @HostBinding('@routeSlideState') routeAnimation = true;
 
   projects: any[];
+
+  // Efeito de lista staggered (quando os itens aparecem um após o outro)
+  // o array 'displayedProjects' abrigará a lista de dados no lugar de array 'projects'
+  // a princípio popularemos apenas o primeiro item neste novo array com o método 'loadProjects()'
+  // e depois inserimos um item por vez conforme a animação do item anterior terminar
   displayedProjects: Project[] = [];
   markedPrjIndex = null;
   progress = 'progressing';
@@ -47,7 +55,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     //       prjs.forEach(prj => {
     //         console.log(prj);
     //         console.log(prj.key);
-    //         console.log(prj.payload.val());     
+    //         console.log(prj.payload.val());
     //       })
     //     }
     //   )
@@ -81,14 +89,20 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     console.log(event)
   }
 
+  // Com base nos eventos disparados  pela animaçãom este método
+  // checa se animação do item da lista já foi completada e então
+  // insere o proximo item do array 'projects' no array 'displayedProjects'
+  // para que este item possa ser animado. Na view é necessário fazer o bind
+  // do evento desta animação (@itemEnter.done - onde .done é o evento disparado
+  // quando a animação termina) com o método abaixo
   onItemAnimated(animationEvt: AnimationEvent, lastPrjId: number){
-    if(animationEvt.fromState != 'void'){
+    if(animationEvt.fromState !== 'void'){
       return;
     }
     if(this.projects.length > lastPrjId + 1){
       this.displayedProjects.push(this.projects[lastPrjId + 1]);
     } else {
-      this.projects = this.displayedProjects
+      this.projects = this.displayedProjects;
     }
   }
 }

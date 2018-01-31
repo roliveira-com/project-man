@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="column">
-          <div class="login-form">
+          <div class="login-form" #loginForm>
             <div class="field">
               <label class="label">e-mail</label>
               <div class="control">
@@ -55,7 +55,7 @@
             </div>
             <div class="field is-grouped is-grouped-right">
               <p class="control">
-                <a class="button is-primary">
+                <a class="button is-primary" (click)="pulseLoginForm(loginForm)">
                   Login
                 </a>
               </p>
