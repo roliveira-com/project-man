@@ -6,11 +6,15 @@ import { RouteFadeState, RouteSlideState } from '../animations/routing';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
   animations: [
-    RouteFadeState,
+    // Chamando uma animação e passando parametros de configuração
+    // RouteFadeState({startOpacity: 0, duration: '200ms'}),
     RouteSlideState
   ]
 })
 export class UsersComponent implements OnInit {
+  // Como não é possivel fazer o bind diretamente no HTML como em outros componentes
+  // nas animações para as rotas usamos o decorator '@HostBiding' para associar a animação 
+  // a esta rota
   // @HostBinding('@routeFadeState') routeAnimation = true;
   @HostBinding('@routeSlideState') routeAnimation = true;
 
