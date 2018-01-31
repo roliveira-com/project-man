@@ -27,6 +27,7 @@ import { Observable } from 'rxjs/Observable';
   ]
 })
 export class ProjectsComponent implements OnInit, AfterViewInit {
+  // Criando o binding para animar a rota
   // @HostBinding('@routeFadeState') routeAnimation = true;
   @HostBinding('@routeSlideState') routeAnimation = true;
 
