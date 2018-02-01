@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-
+import { RouterOutlet } from '@angular/router';
 import { HideHero } from './animations/hide-hero';
-import { AnimationBuilder, trigger, state, style, transition, animate } from '@angular/animations/';
+import { AnimationBuilder, trigger, state, style, transition, animate, group, query, animateChild } from '@angular/animations/';
 
 
 @Component({
@@ -10,7 +10,30 @@ import { AnimationBuilder, trigger, state, style, transition, animate } from '@a
   styleUrls:
    ['./app.component.scss'],
   animations: [
-    HideHero
+    HideHero,
+    trigger('routeState', [
+      transition('* => *', [
+        group([
+          query(':enter', [
+            // Este método dispara a animação associada ao elemento, feita da maneira
+            // antiga primeiro, e depois ativa a animação abaixo. Pode ser
+            // útil nos casos que precisamos empregar duas animações
+            // animateChild(),
+            style({
+              transform: 'translateY(-400px)',
+              opacity: 0
+            }),
+            animate('300ms ease-out')
+          ], {optional: true}),
+          query(':leave', [
+            animate('300ms ease-out', style({
+              transform: 'translateY(600px)',
+              opacity: 0
+            }))
+          ], { optional: true })
+        ])
+      ])
+    ])
   ]
 })
 export class AppComponent {
@@ -39,6 +62,19 @@ export class AppComponent {
 
     const player = animation.create(element);
     player.play();
+  }
+
+  getAnimationData(outlet: RouterOutlet){
+    console.log(outlet);
+    if(outlet){
+      const routeData = outlet.activatedRouteData['animation'];
+      if (!routeData) {
+        return 'rootPage';
+      }
+      return routeData['page'];
+    }else{
+      return 'rootPage';
+    }
   }
 
 }

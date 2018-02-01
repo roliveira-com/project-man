@@ -12,11 +12,11 @@ import { RouteFadeState, RouteSlideState } from '../animations/routing';
   ]
 })
 export class UsersComponent implements OnInit {
-  // Como não é possivel fazer o bind diretamente no HTML como em outros componentes
-  // nas animações para as rotas usamos o decorator '@HostBiding' para associar a animação 
-  // a esta rota
+  // Criando o binding para animar a rota
+  // Neste caso, a animação da rota é disparada programaticamente pelo
+  // decorator '@HostBiding'
   // @HostBinding('@routeFadeState') routeAnimation = true;
-  @HostBinding('@routeSlideState') routeAnimation = true;
+  // @HostBinding('@routeSlideState') routeAnimation = true;
 
   constructor() { }
 

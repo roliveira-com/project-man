@@ -73,6 +73,6 @@
   </div>
 </div>
 
-<main>
-  <router-outlet></router-outlet>
+<main [@routeState]="getAnimationData(routeOutlet)">
+  <router-outlet #routeOulet="outlet"></router-outlet>
 </main>
