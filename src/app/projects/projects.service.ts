@@ -33,11 +33,12 @@ export class ProjectsService {
   // }
 
   loadProjects(): Observable<Project[]> {
-    return this.http.get<Project[]>('http://localhost:8080/api/projects/')
+    return this.http.get<Project[]>('https://roliveira-contacts-server.herokuapp.com/api/projects/')
   }
 
-  createProject(prj: Project) {
-    return this.http.post<Project>('http://localhost:8080/api/projects/', prj)
+  createProject(prj: Project): Observable<void> {
+    console.log(prj)
+    return this.http.post<Project>('https://roliveira-contacts-server.herokuapp.com/api/projects/', prj)
       .map(prj => console.log(`Projeto Id: ${prj._id} foi inserido com sucesso`));
   }
 

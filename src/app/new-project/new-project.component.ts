@@ -40,7 +40,7 @@ export class NewProjectComponent implements OnInit {
   }
 
   registerNewProject(prj: Project){
-    this.service.createProject(prj);
+    this.service.createProject(prj).subscribe();
     this.newProjectForm.reset();
   }
 
