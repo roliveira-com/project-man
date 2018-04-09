@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { AngularFireDatabase, AngularFireList, AngularFireAction, DatabaseSnapshot } from 'angularfire2/database';
 
+import * as io from 'socket.io-client';
 import { Observable } from 'rxjs/Observable';
 
 import { Project } from './project.model';
@@ -18,7 +19,8 @@ import { ROUTER_PROVIDERS } from '@angular/router/src/router_module';
 @Injectable()
 export class ProjectsService {
   // private data: Project[] = projects;
-  private projects: Observable<Project[]>
+  private projects: Observable<Project[]>;
+  private socket = io('http://localhost:8080');
 
   constructor(private http: HttpClient){}
 
@@ -33,13 +35,27 @@ export class ProjectsService {
   // }
 
   loadProjects(): Observable<Project[]> {
-    return this.http.get<Project[]>('https://roliveira-contacts-server.herokuapp.com/api/projects/')
+    return this.http.get<Project[]>('http://localhost:8080/api/projects/')
   }
 
-  createProject(prj: Project): Observable<void> {
-    console.log(prj)
-    return this.http.post<Project>('https://roliveira-contacts-server.herokuapp.com/api/projects/', prj)
-      .map(prj => console.log(`Projeto Id: ${prj._id} foi inserido com sucesso`));
+  // createProject(prj: Project): Observable<void> {
+  //   console.log(prj)
+  //   return this.http.post<Project>('http://localhost:8080/api/projects/', prj)
+  //     .map(prj => console.log(`Projeto Id: ${prj._id} foi inserido com sucesso`));
+  // }
+
+  createProject(prj: Project){
+    this.socket.emit('newproject', prj);
+  }
+
+  watchProject(){
+    const observable  = new Observable<Project>(observer => {
+      this.socket.on('projectadded', (data) => {
+        observer.next(data);
+      });
+      return () => {this.socket.disconnect();};
+    })
+    return observable;
   }
 
   // updateProject(prj: Project){

@@ -38,18 +38,16 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
 
   constructor(private prjService: ProjectsService) {
 
-    this.prjService.loadProjects()
-      .subscribe(
-      (prj) => {
+    this.prjService.loadProjects().subscribe(prj => {
         this.progress = 'finished';
         prj.reverse();
         this.projects = prj;
-        if (this.projects.length >= 1) {
-          this.displayedProjects.push(this.projects[0]);
-          console.log(this.displayedProjects);
-        }
       }
     );
+
+    this.prjService.watchProject().subscribe(prj => {
+      this.projects.unshift(prj);
+    });
    }
 
   ngOnInit() {
