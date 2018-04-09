@@ -42,6 +42,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
         this.progress = 'finished';
         prj.reverse();
         this.projects = prj;
+        console.log(this.projects);
       }
     );
 

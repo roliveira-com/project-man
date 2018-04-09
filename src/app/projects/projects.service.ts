@@ -20,7 +20,7 @@ import { ROUTER_PROVIDERS } from '@angular/router/src/router_module';
 export class ProjectsService {
   // private data: Project[] = projects;
   private projects: Observable<Project[]>;
-  private socket = io('http://localhost:8080');
+  private socket = io('http://localhost:8080/api/projects');
 
   constructor(private http: HttpClient){}
 
