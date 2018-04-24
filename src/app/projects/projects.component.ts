@@ -74,7 +74,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     if(this.projects.length > lastPrjId + 1){
       this.displayedProjects.push(this.projects[lastPrjId + 1]);
     } else {
-      this.projects = this.displayedProjects
+      this.projects = this.displayedProjects;
     }
   }
 }

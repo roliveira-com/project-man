@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { HideHero } from './animations/hide-hero'
+import { HideHero } from './animations/hide-hero';
 
 
 @Component({
@@ -14,6 +14,6 @@ import { HideHero } from './animations/hide-hero'
 })
 export class AppComponent {
 
-  heroCollapse = true
+  heroCollapse = true;
 
 }
