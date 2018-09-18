@@ -19,13 +19,13 @@ export class ProjectComponent implements OnInit {
 
   constructor(
     private form: FormBuilder,
-    private api: ProjectsService  
+    private api: ProjectsService
   ) { }
 
   ngOnInit() {
     this.statusForm = this.form.group({
-      status: this.form.control(['',Validators.required])
-    })
+      status: this.form.control(['', Validators.required])
+    });
   }
 
   onUpdateStatus(prj: Project, status: string) {

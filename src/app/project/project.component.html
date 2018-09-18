@@ -2,16 +2,16 @@
   <div class="level">
     <div class="level-left">
       <div class="level-item">
-        <h3>{{ project.title }}</h3>
+        <h3>{{ project.title }} <span class="tag is-medium" [ngClass]=getPrjStatusClass()>{{ project.status }}</span></h3>
       </div>
     </div>
     <div class="level-right">
       <div class="level-item">
-        <h3><span class="tag is-medium" [ngClass]=getPrjStatusClass()>{{ project.status }}</span></h3>
+        <a class="project__details-link"  href=""><img src="assets/arrow.svg" alt=""></a>
       </div>
     </div>
   </div>
-  <hr>
+  <!-- <hr>
   <p>{{ project.description }}</p>
   <div class="level">
     <div class="level-left">
@@ -46,6 +46,6 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
 

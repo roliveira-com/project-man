@@ -1,15 +1,17 @@
 :host {
-  display: block;
+  display: inline-block;
   /* Estilo aplicado via Angular Animations */
   /* height: 65px; */
   margin-bottom: 1em;
+  margin-right: 1%;
   padding: 1em;
   /* Estilo aplicado via Angular Animations */
   /* border: 1px solid #CCC; */
   overflow: hidden;
-  box-shadow: 3px 3px 4px #CCC;
+  box-shadow: 2px 2px 5px 1px #CCC;
   /* Estilo aplicado via Angular Animations */
   /* transition: all .1s ease-in-out; */
+  width: 49%;
 }
 
 /* Faz com que o box de projetos se desloque um pouco para cima */
@@ -40,4 +42,11 @@
 .form-control{
   display: inline-block;
   width: 50%;
+}
+
+.project__details-link{
+  img{
+    width: 30px;
+    transform: rotate(90deg);
+  }
 }

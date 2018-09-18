@@ -31,15 +31,14 @@ export const ItemAppearanceTrigger = trigger('ItemAppearance', [
 export const itemEnterTrigger = trigger('itemEnter',[
   transition(':enter',[
     animate('800ms ease-out', keyframes([
-      style({ opacity: 0, transform: 'translateX(-100%)'}),
-      style({ opacity: 1, transform: 'translateX(15%)'}),
-      style({ opacity: 1, transform: 'translateX(0)'})
+      style({ opacity: 0 }),
+      style({ opacity: 1 }),
+      style({ opacity: 1 })
     ]))
   ]),
   transition(':leave', [
     style({
-      opacity: 1,
-      transform: 'translateX(0)'
+      opacity: 1
     }),
     animate('500ms ease-out', style({ opacity: 0, transform: 'translateX(100%)' }))
   ]),
@@ -60,3 +59,36 @@ export const itemEnterTrigger = trigger('itemEnter',[
     }))
   ])
 ])
+
+// export const itemEnterTrigger = trigger('itemEnter',[
+//   transition(':enter',[
+//     animate('800ms ease-out', keyframes([
+//       style({ opacity: 0, transform: 'translateX(-100%)'}),
+//       style({ opacity: 1, transform: 'translateX(15%)'}),
+//       style({ opacity: 1, transform: 'translateX(0)'})
+//     ]))
+//   ]),
+//   transition(':leave', [
+//     style({
+//       opacity: 1,
+//       transform: 'translateX(0)'
+//     }),
+//     animate('500ms ease-out', style({ opacity: 0, transform: 'translateX(100%)' }))
+//   ]),
+//   transition('slideUp => slideDown',[
+//     style({
+//       transform: 'translateY(-100%)'
+//     }),
+//     animate('300ms ease-out', style({
+//       transform: 'translateY(0)'
+//     }))
+//   ]),
+//   transition('slideDown => slideUp', [
+//     style({
+//       transform: 'translateY(0)'
+//     }),
+//     animate('310ms ease-in', style({
+//       transform: 'translateY(-100%)'
+//     }))
+//   ])
+// ])
